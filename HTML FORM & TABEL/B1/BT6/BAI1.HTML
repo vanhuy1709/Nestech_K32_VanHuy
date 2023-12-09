@@ -4,20 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        /* CSS cho các phần tử trong form */
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: rgb(0, 179, 255);
+        }
+
+        .form-login {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .email,
+        .phone {
+            margin-bottom: 20px;
+        }
+
+        .gioitinh {
+            margin-bottom: 10px;
+        }
+
+        .address {
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <form action="submit.php" method="POST">
-        <h3>SỞ THÍCH CỦA BẠN.</h3>
-        <label for="name"><b>Họ và Tên:</b></label>
-        <input type="text" id="name" name="name" required><br>
+    <form id="registrations-form">
+        <h1>Đăng ký thành viên</h1>
+        <div class="form-login">
+            <label for="username">Họ và tên</label>
+            <input type="text" id="username" name="username" required> <br>
+            <label for="ngaysinh">Ngày sinh</label>
+            <input type="date" name="birthdate" id="birthdate">
+        </div>
+        
+        <div class="gioitinh">
+            <label for="gioitinh">Giới tính</label>
+            <label><input type="radio" name="gioitinh" >Nam</label>
+            <label><input type="radio" name="gioitinh" >Nữ</label>
+        </div>
 
-        <label for="email"><B>Email:</B></label>
-        <input type="email" id="email" name="email" required><br>
-        Sở thích:<br/>
-  <label><input name="hobby" value="sport" type="checkbox"/> THỂ THAO</label> <br/>
- 
+        <div class="address">
+            <label for="address">Địa chỉ</label>
+            <input type="text" id="address" name="address">
+        </div>
 
-       
+        <div class="class">
+            <label for="class">Lớp</label>
+            <select name="class" id="Class">
+                <option value="">Chọn lớp</option>
+                <option value="class1">JS</option>
+                <option value="class2">Python</option>
+                <option value="class3">Fullstack</option>
+                <option value="class4">Data</option>
+            </select>
+        </div>
+
+        <div class="email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="phone">
+            <label for="phone">Số điện thoại</label>
+            <input type="number" name="phone" id="phone" required>
+        </div>
+        
+        <input type="submit" value="Đăng Ký">
+        <input type="reset" value="Nhập lại">
+
+
     </form>
+
+
 </body>
 </html>
