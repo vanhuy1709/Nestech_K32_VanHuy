@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <script src="bai3.js"></script>
+    <table>
+        <tr>
+            <td>ChieuCao (cm)</td>
+            <td>CanNang (kg)</td>
+        </tr>
+        <tr>
+            <td> <input id="ChieuCao"></td>
+            <td> <input id="CanNang"> </td>          
+        </tr>
+        <tr>
+            <td>BMI</td>
+            <td>Interpretstion</td>
+        </tr>
+        <tr>
+        <tr>
+            <td> BMI < 18.5 </td>
+            <td>Underweight </td>
+        </tr>
+        <tr>
+            <td>18.5 ≤ BMI < 25.0</td>
+            <td>Normal</td>
+        </tr>
+        <tr>
+            <td>25 ≤ BMI < 30.0</td>
+            <td>Overweight</td>
+        </tr>
+        <tr>
+                <td>30.0 ≤ BMI</td>
+                <td>Obese</td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="result(event)" style="margin: auto; position: relative; display: block;">Click</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="resultBMI">
+                
+            </td>
+            <td id="conclusion">
+                
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
