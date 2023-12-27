@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Số ngày trong tháng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tính số ngày trong tháng</h2>
+
+    <form>
+        <label for="monthNumber">Nhập số thứ tự của tháng (1 - 12): </label>
+        <input type="number" id="monthNumber" min="1" max="12" required>
+        <button type="button" onclick="calculateDays()">Tính số ngày</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateDays() {
+            
+            var monthNumber = document.getElementById('monthNumber').value;
+            var resultElement = document.getElementById('result');
+
+            switch (parseInt(monthNumber)) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    resultElement.textContent = "Tháng " + monthNumber + " có 31 ngày.";
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    resultElement.textContent = "Tháng " + monthNumber + " có 30 ngày.";
+                    break;
+                case 2:
+                    resultElement.textContent = "Tháng 2 có 28 hoặc 29 ngày.";
+                    break;
+                default:
+                    resultElement.textContent = "Vui lòng nhập số thứ tự tháng từ 1 đến 12.";
+            }
+        }
+    </script>
+</body>
+</html>

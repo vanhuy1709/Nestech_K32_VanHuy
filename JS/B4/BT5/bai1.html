@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            width: 50px;
+            margin: 5px;
+        }
+        button {
+            width: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+
+    <input type="text" id="display" disabled>
+    <br>
+
+    <button onclick="appendNumber('1')">1</button>
+    <button onclick="appendNumber('2')">2</button>
+    <button onclick="appendNumber('3')">3</button>
+    <button onclick="setOperator('+')">+</button>
+    <br>
+
+    <button onclick="appendNumber('4')">4</button>
+    <button onclick="appendNumber('5')">5</button>
+    <button onclick="appendNumber('6')">6</button>
+    <button onclick="setOperator('-')">-</button>
+    <br>
+
+    <button onclick="appendNumber('7')">7</button>
+    <button onclick="appendNumber('8')">8</button>
+    <button onclick="appendNumber('9')">9</button>
+    <button onclick="setOperator('+')">*</button>
+    <br>
+
+    <button onclick="appendNumber('7')">C</button>
+    <button onclick="appendNumber('8')">0</button>
+    <button onclick="appendNumber('9')">=</button>
+    <button onclick="setOperator('+')">/</button>
+    <script>
+        var currentInput = '';
+        var operator = '';
+        var result = 0;
+
+        function init() {
+            document.getElementById('btn1').addEventListener('click', function() { appendNumber('1'); });
+            document.getElementById('btn2').addEventListener('click', function() { appendNumber('2'); });
+            document.getElementById('btn3').addEventListener('click', function() { appendNumber('3'); });
+            document.getElementById('btn4').addEventListener('click', function() { appendNumber('4'); });
+            document.getElementById('btn5').addEventListener('click', function() { appendNumber('5'); });
+            document.getElementById('btn6').addEventListener('click', function() { appendNumber('6'); });
+            document.getElementById('btn7').addEventListener('click', function() { appendNumber('7'); });
+            document.getElementById('btn8').addEventListener('click', function() { appendNumber('8'); });
+            document.getElementById('btn9').addEventListener('click', function() { appendNumber('9'); });
+            document.getElementById('btn0').addEventListener('click', function() { appendNumber('0'); });
+
+            document.getElementById('btnPlus').addEventListener('click', function() { setOperator('+'); });
+            document.getElementById('btnMinus').addEventListener('click', function() { setOperator('-'); });
+            document.getElementById('btnMultiply').addEventListener('click', function() { setOperator('*'); });
+            document.getElementById('btnDivide').addEventListener('click', function() { setOperator('/'); });
+
+            document.getElementById('btnClear').addEventListener('click', function() { clearDisplay(); });
+            document.getElementById('btnEquals').addEventListener('click', function() { calculate(); });
+
+            updateDisplay();
+        }
+
+        function appendNumber(number) {
+            currentInput += number;
+            updateDisplay();
+        }
+
+        function setOperator(newOperator) {
+            operator = newOperator;
+            result = parseFloat(currentInput);
+            currentInput = '';
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentInput = '';
+            operator = '';
+            result = 0;
+            updateDisplay();
+        }
+
+        function calculate() {
+            var input = parseFloat(currentInput);
+
+            switch (operator) {
+                case '+':
+                    result += input;
+                    break;
+                case '-':
+                    result -= input;
+                    break;
+                case '*':
+                    result *= input;
+                    break;
+                case '/':
+                    if (input !== 0) {
+                        result /= input;
+                    } else {
+                        alert("Cannot divide by zero!");
+                        clearDisplay();
+                        return;
+                    }
+                    break;
+            }
+
+            currentInput = result.toString();
+            operator = '';
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('display').value = currentInput;
+        }
+
+        // Gọi hàm init để khởi tạo sự kiện
+        init();
+    </script>
+</body>
+</html>

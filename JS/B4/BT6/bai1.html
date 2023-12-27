@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Do You Love Me?</h2>
+    <button id="yesButton" onclick="showLove()">YES</button>
+    <button id="noButton" onmouseover="moveNoButton()">NO</button>
+
+    <script>
+        function showLove() {
+            alert("<3");
+        }
+
+        function moveNoButton() {
+            var noButton = document.getElementById('noButton');
+            var maxX = window.innerWidth - noButton.clientWidth;
+            var maxY = window.innerHeight - noButton.clientHeight;
+
+            var newX = Math.random() * maxX;
+            var newY = Math.random() * maxY;
+
+            noButton.style.left = newX + 'px';
+            noButton.style.top = newY + 'px';
+        }
+    </script>
+</body>
+</html>
