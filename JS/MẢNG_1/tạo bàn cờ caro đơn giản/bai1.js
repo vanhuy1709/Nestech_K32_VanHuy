@@ -13,8 +13,6 @@ function changeValue() {
 	b.innerHTML = "<hr/>" + data;
 }
 
-
-
 let b = document.getElementById("carogame");
 
 let board = [];
